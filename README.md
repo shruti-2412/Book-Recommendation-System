@@ -46,3 +46,12 @@ After data preparation, build a recommendation system based on popularity (i.e r
 The third step is to do Collaborative Filtering - Memory based approach was our first trial on train and test dataset which uses the memory of previous user's interactions to compute user's similarities based on items they’ve interacted with (i.e user-based approach) or compute items similarities based on the users that have interacted with them (i.e item-based approach). Our approach here is that we will only select users who have rated more than 200 books and we will only select books that are rated by more than 50 users to get more accurate results for the model and avoid outliners. Then we apply cosine similarity to make item similarity need to take the transpose of a matrix. This matrix would help in managing the train-test matrix. After all views predictions based on similarity, we find recommendation on it based on score. 
 
 The last step is to create a function recommend which will take the book name as input from the user and it will return 4 similar books with the author.
+
+### Conclusion
+During the last few decades, with the rise of YouTube, Amazon, Netflix, and many
+other such web services, recommender systems have taken more and more place
+in our lives. From e-commerce (suggest to buyers articles that could interest
+them) to online advertisement (suggest to users the right contents, matching their
+preferences), recommender systems are today unavoidable in our daily online
+journeys. In this project, we have tried to build a book recommendation system
+for the user based on collaborative filtering.
