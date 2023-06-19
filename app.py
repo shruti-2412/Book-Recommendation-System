@@ -1,13 +1,14 @@
 from flask import *
-import pickle
 import numpy as np
+import joblib as joblib
 
-popular_df = pickle.load(open('popular.pkl','rb'))
-pt = pickle.load(open('pt.pkl','rb'))
-books = pickle.load(open('books.pkl','rb'))
-similarity_scores = pickle.load(open('similarity_scores.pkl','rb'))
+popular_df = joblib.load(open('popular.pkl', 'rb'))
+pt = joblib.load(open('pt.pkl', 'rb'))
+books = joblib.load(open('books.pkl', 'rb'))
+similarity_scores = joblib.load(open('similarity_scores.pkl', 'rb'))
 
 app = Flask(__name__)
+
 
 @app.route('/')
 def index():
@@ -19,9 +20,11 @@ def index():
                            rating=list(popular_df['avg_rating'].values)
                            )
 
+
 @app.route('/recommend')
 def recommend_ui():
     return render_template('recommend.html')
+
 
 @app.route('/recommend_books',methods=['post'])
 def recommend():
@@ -41,7 +44,8 @@ def recommend():
 
     print(data)
 
-    return render_template('recommend.html',data=data)
+    return render_template('recommend.html', data=data)
+
 
 if __name__ == '__main__':
     app.run(debug=True)
