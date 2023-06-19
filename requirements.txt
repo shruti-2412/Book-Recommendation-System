@@ -2,4 +2,4 @@ gunicorn
 Flask
 Numpy
 Pandas
-
+joblib
